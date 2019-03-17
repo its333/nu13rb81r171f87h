@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
   var arg2 = args[1];
 
   request.post({
-    url:     'http://www.botman.dx.am/setContent.php',
+    url:     process.env.webURL+'/setContent.php',
     form:    {cname: arg, cvalue: arg2}
   }, function(error, response, body){
     console.log(body);

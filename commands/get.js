@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   var arg = args[0];
 
   request({
-    url:     'http://www.botman.dx.am/getContent.php',
+    url:     process.env.webURL+'getContent.php',
     qs:    {cname: arg}
   }, function(error, response, body){
     console.log(body);

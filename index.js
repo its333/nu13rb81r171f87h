@@ -156,4 +156,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login("process.env.token"); //token
+bot.login(process.env.token); //token

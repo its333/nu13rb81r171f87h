@@ -143,7 +143,7 @@ bot.on("message", async message => {
     var generalChannel = message.guild.channels.find("name","general")
     //if(message.channel != patreonChannel && message.channel != generalChannel) return;
 
-    if(message.member.roles.find('name','Special') || //require premission
+    if(message.member.roles.find('name','wao') || //require premission
       commandfile.help.hasOwnProperty("anyone")){ //anyone can use
         commandfile.run(bot, message, args); //run command
     }else{

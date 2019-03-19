@@ -21,9 +21,7 @@ module.exports.run = async (bot, message, args) => {
   }, function(error, response, body){
     console.log(body);
 
-    message.channel.send(new Discord.RichEmbed()
-    .setColor(randomColor())
-    .addField("Get", body, true));
+    message.channel.send(body);
   });
 
 }

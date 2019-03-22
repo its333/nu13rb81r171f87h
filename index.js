@@ -85,8 +85,9 @@ bot.on("message", async message => {
      "☕": "Suzushina_Yuriko",
      "super": "kinuhata_saiai",
      "fren/da": "frenda_seivelun",
-
-
+     "🌭": "index",
+     "🍅": "nishikino_maki",
+     "🎵": "bang_dream!",
   };
 
   if(cmd.slice(0,1) != prefix){
@@ -103,18 +104,11 @@ bot.on("message", async message => {
                   }
                 )
         });*/
-        var charMatch = "";
+        var charMatch = characters[message.cleanContent];
 
-        for(var key in characters){
-          if(message.cleanContent == key){
-            charMatch = key;
-            break;
-          }
-        }
+        if(charMatch != null){
 
-        if(charMatch != ""){
-
-          booru.posts({tags: `rating:safe ${characters[charMatch]}`, limit: 500}).then(posts => {
+          booru.posts({tags: `rating:safe ${charMatch}`, limit: 500}).then(posts => {
             // Select a random post from posts array
             const index = Math.floor(Math.random() * posts.length);
             const post = posts[index];

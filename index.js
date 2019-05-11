@@ -39,7 +39,7 @@ function UpdateActivity(){
 
     bot.user.setActivity(string, {type: "PLAYING"});
     console.log(`${d.getHours()} ${d.getMinutes()}`);
-    if(d.getHours() == 11 && d.getMinutes() == 55){
+    if(d.getHours() == 11 && d.getMinutes() == 55 && (d.getDay() == 0 || d.getDay() == 6)){
 
       var guilds = bot.guilds; //all the server the bot is in
       try {

@@ -6,6 +6,8 @@ const randomColor = require('randomcolor'); // import the script
 const Danbooru = require("danbooru");
 const booru = new Danbooru();
 
+var request = require('request');
+
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.commands = new Discord.Collection();
@@ -67,7 +69,23 @@ bot.on("ready", async () => {
   UpdateActivity();
 });
 
+function UpdateWeb(message){
+  var userid = message.author.id;
+
+  var user = message.guild.members.find('id',userid);
+
+  request({
+    url: "http://www.kykman.dx.am/newmessage.php",
+    qs: {msg: `${user.displayName}: ${message.cleanContent}`,},
+  },function(error, response, body){
+    //console.log(error);
+  });
+}
+
 bot.on("message", async message => {
+
+  UpdateWeb(message);
+  
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
